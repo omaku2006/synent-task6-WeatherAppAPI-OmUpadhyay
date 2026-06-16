@@ -1,0 +1,40 @@
+/*
+ * ╭─────────────────────────────────────────────────────────╮
+ * │ Initialization                                          │
+ * ╰─────────────────────────────────────────────────────────╯
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/*
+ * ╭─────────────────────────────────────────────────────────╮
+ * │ Background Image                                        │
+ * ╰─────────────────────────────────────────────────────────╯
+*/
+
+#bgImg {
+  background: url('/lighthouse-7250229.jpg') no-repeat center / cover;
+  filter: brightness(0.8);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+
+.weather * {
+  position: relative;
+  z-index: 1;
+}
