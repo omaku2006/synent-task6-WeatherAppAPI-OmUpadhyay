@@ -3,6 +3,72 @@
  * │ Initialization                                          │
  * ╰─────────────────────────────────────────────────────────╯
 */
+/* Headings */
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+h5 {
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+}
+
+h6 {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Text */
+
+p {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+span {
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+}
+
+/* Forms */
+
+label {
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+}
+
+input,
+textarea,
+select {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+button {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+:root {
+  --primary-color: #fff;
+  --secondary-color: #efefef;
+  --bg-primary: #023047;
+  --bg-secondary: #000;
+  --accent-color: #ffb703;
+
+  --big-scale: 32px;
+  --medium-scale: 16px;
+  --small-scale: 8px;
+
+  --headline-font: 'EB Garamond', serif;
+  --body-font: 'Quicksand', sans-serif;
+}
 
 * {
   padding: 0;
@@ -10,11 +76,65 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: var(--body-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--headline-font);
+}
+
 #app {
   position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+#model {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  translate: all 1s ease;
+  opacity: 1;
+  background: color-mix(in srgb, var(--bg-secondary) 10%, transparent 90%);
+  border-radius: var(--big-scale);
+  z-index: 1;
+}
+
+#loader path {
+  fill: transparent;
+  stroke: #ffffff;
+  stroke-width: 2px;
+  stroke-dasharray: 590;
+  stroke-dashoffset: 590;
+  animation: loading 1.5s linear infinite alternate;
+}
+
+@keyframes loading {
+  from {
+    stroke-dashoffset: 590;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+hr.hr {
+  margin: 24px 0;
+  border: 1px solid var(--secondary-color);
 }
 
 /*
@@ -34,7 +154,61 @@
   left: 0;
 }
 
+/*
+ * ╭─────────────────────────────────────────────────────────╮
+ * │ data part/weather                                       │
+ * ╰─────────────────────────────────────────────────────────╯
+*/
 .weather * {
   position: relative;
   z-index: 1;
+}
+
+.material-symbols-rounded {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+#tempSection {
+  position: absolute;
+  left: 32px;
+  top: 20px;
+  color: var(--primary-color);
+  font-weight: 400;
+}
+
+#tempSection .currentTemp {
+  text-align: center;
+}
+
+#tempSection .feelsLikeTemp {
+  padding: 8px 16px;
+  text-align: center;
+  background: var(--primary-color);
+  color: var(--bg-primary);
+  border-radius: var(--big-scale);
+}
+
+#rightPart {
+  position: absolute;
+  padding: 28px;
+  border-radius: var(--medium-scale);
+  background: color-mix(in srgb, var(--bg-secondary) 10%, transparent 90%);
+  backdrop-filter: blur(4px);
+  right: 32px;
+  top: 20px;
+}
+
+#rightPart span {
+  font-size: 52px;
+  color: var(--primary-color);
+}
+
+#rightPart .subSection {
+  color: var(--secondary-color);
+  display: flex;
+  gap: 24px;
 }

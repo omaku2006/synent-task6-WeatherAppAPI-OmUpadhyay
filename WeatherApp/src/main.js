@@ -1,29 +1,19 @@
-var isLoading = false;
-var error = '';
-var city = 'amreli';
-var data = {};
+import { state, fetchWeather } from './scripts/fetchWeather';
+import { emptyModel, renderError, renderLoading, renderRightPart, renderTemp } from './scripts/ui';
 
-const loader = document.getElementsByClassName('loader');
-
-const fetchWeather = async () => {
-  isLoading = true;
-  if (isLoading) {
-    loader[0].innerHTML = `Loading...`;
-  }
-
-  try {
-    const res = await fetch(`https://wttr.in/${city}?format=j1`);
-    data = await res.json();
-    const tempSection = document.getElementById('tempSection');
-
-    tempSection.innerHTML = `<h1>${data.current_condition[0].FeelsLikeC}</h1>`;
-  } catch (e) {
-    error = `Getting error while fetching data : ${e}`;
-    weatherSection[0].innerHTML = `<h2>${error}</h2>`;
-    return;
-  } finally {
-    isLoading = false;
-  }
+const init = async () => {
+  //          ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐
+  //          ╎                     Initialization                      ╎
+  //          └╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┘
+  renderLoading();
+  await fetchWeather();
+  if (state.error) return renderError();
+  emptyModel();
+  //          ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐
+  //          ╎                 Data UI Implementation                  ╎
+  //          └╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┘
+  renderTemp();
+  renderRightPart();
 };
 
-fetchWeather();
+init();
