@@ -1,13 +1,13 @@
 export const state = {
   isLoading: false,
   error: null,
-  city: 'amreli',
+  city: 'kolkata',
   weatherData: null,
 };
 
 export const fetchWeather = async () => {
   state.isLoading = true;
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   try {
     const res = await fetch(`https://wttr.in/${state.city}?format=j1`);

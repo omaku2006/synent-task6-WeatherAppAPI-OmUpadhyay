@@ -1,7 +1,15 @@
 import { state, fetchWeather } from './scripts/fetchWeather';
-import { emptyModel, renderError, renderLoading, renderRightPart, renderTemp } from './scripts/ui';
+import {
+  emptyModel,
+  renderCard,
+  renderError,
+  renderLoading,
+  renderRightPart,
+  renderSearch,
+  renderTemp,
+} from './scripts/ui';
 
-const init = async () => {
+export const init = async () => {
   //          ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐
   //          ╎                     Initialization                      ╎
   //          └╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┘
@@ -12,8 +20,10 @@ const init = async () => {
   //          ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐
   //          ╎                 Data UI Implementation                  ╎
   //          └╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┘
+  renderSearch();
   renderTemp();
   renderRightPart();
+  renderCard();
 };
 
 init();
