@@ -23,6 +23,10 @@ export const emptyModel = () => {
   model.style.display = 'none';
 };
 
+export const emptyUI = () => {
+  cardContainer.innerHTML = '';
+};
+
 export const renderSearch = () => {
   searchBox.innerHTML = `
     <div class="searchWrap">
@@ -36,7 +40,7 @@ export const renderSearch = () => {
 
   searchButton.addEventListener('click', async () => {
     if (!search.value.trim()) return;
-    // emptyUI();
+    emptyUI();
     state.city = search.value.trim();
     init();
   });
