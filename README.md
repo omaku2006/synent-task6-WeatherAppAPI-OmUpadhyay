@@ -2,6 +2,9 @@
 
 A modern weather application that fetches and displays real-time weather data using a weather API. Built with vanilla JavaScript and Vite for fast development.
 
+<img width="1920" height="1080" alt="Screenshot_2026-06-19-19-49-15" src="https://github.com/user-attachments/assets/af215bc6-8e09-4f89-9911-c42a9d14cb99" />
+<img width="1920" height="1080" alt="Screenshot_2026-06-19-19-48-47" src="https://github.com/user-attachments/assets/7eac164e-412e-4c5e-a82e-76ec05ceebea" />
+
 ## Features
 
 - Real-time weather data fetching
@@ -46,25 +49,25 @@ WeatherApp/
 
 ```bash
 cd WeatherApp
-npm install
+bun install
 ```
 
 ### Development
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 ### Build for Production
 
 ```bash
-npm run build
+bun run build
 ```
 
 ### Preview Production Build
 
 ```bash
-npm run preview
+bun run preview
 ```
 
 ## Usage
