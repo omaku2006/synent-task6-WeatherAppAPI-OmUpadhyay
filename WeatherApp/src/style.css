@@ -145,7 +145,7 @@ hr.hr {
 */
 
 #bgImg {
-  background: url('/2.jpg') no-repeat center / cover;
+  /* background: url('/2.jpg') no-repeat center / cover; */
   filter: brightness(0.8);
   width: 100vw;
   height: 100vh;

@@ -7,6 +7,7 @@ const tempSection = document.getElementById('tempSection');
 const rightPart = document.getElementById('rightPart');
 const cardContainer = document.getElementById('cardContainer');
 const searchBox = document.getElementById('searchBox');
+const bgImg = document.getElementById('bgImg');
 
 export const renderLoading = () => {
   model.style.display = 'flex';
@@ -25,6 +26,12 @@ export const emptyModel = () => {
 
 export const emptyUI = () => {
   cardContainer.innerHTML = '';
+};
+
+export const randomBgImg = () => {
+  const randomNumber = Math.floor(Math.random() * 9) + 1;
+
+  bgImg.style.background = `url('/${randomNumber}.jpg') no-repeat center / cover`;
 };
 
 export const renderSearch = () => {

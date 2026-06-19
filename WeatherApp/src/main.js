@@ -1,6 +1,7 @@
 import { state, fetchWeather } from './scripts/fetchWeather';
 import {
   emptyModel,
+  randomBgImg,
   renderCard,
   renderError,
   renderLoading,
@@ -8,6 +9,8 @@ import {
   renderSearch,
   renderTemp,
 } from './scripts/ui';
+
+randomBgImg();
 
 export const init = async () => {
   //          ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐
