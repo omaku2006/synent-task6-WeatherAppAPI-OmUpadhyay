@@ -11,7 +11,7 @@ A modern weather application that fetches and displays real-time weather data us
 - City search functionality
 - Current temperature display
 - Weather forecast cards
-- Dynamic background based on weather conditions
+- Dynamic background to enhance User Experience & making good looking
 - Responsive UI with smooth animations
 - Error handling for failed API requests
 
