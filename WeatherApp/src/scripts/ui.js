@@ -25,6 +25,27 @@ export const emptyModel = () => {
 };
 
 export const emptyUI = () => {
+  const infoPart = document.querySelectorAll('.info p');
+  const currentTemp = document.querySelectorAll('.currentTemp');
+  const feelsLikeTemp = document.querySelectorAll('.feelsLikeTemp');
+  const weatherDesc = document.querySelectorAll('.weatherDesc');
+
+  infoPart.forEach((item) => {
+    item.innerHTML = '--';
+  });
+
+  currentTemp.forEach((item) => {
+    item.innerHTML = '--';
+  });
+
+  feelsLikeTemp.forEach((item) => {
+    item.innerHTML = '--';
+  });
+
+  weatherDesc.forEach((item) => {
+    item.innerHTML = '--';
+  });
+
   cardContainer.innerHTML = '';
 };
 
