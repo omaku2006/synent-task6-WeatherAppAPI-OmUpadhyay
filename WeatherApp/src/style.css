@@ -105,6 +105,7 @@ h6 {
   padding: 32px;
   transform: translate(-50%, -50%);
   display: flex;
+  color: var(--secondary-color);
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(12px);
@@ -145,11 +146,15 @@ hr.hr {
 */
 
 #bgImg {
-  /* background: url('/2.jpg') no-repeat center / cover; */
+  background-image: url('/sunny.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   filter: brightness(0.8);
   width: 100vw;
   height: 100vh;
   position: absolute;
+  transition: all 800ms linear;
   z-index: 0;
   top: 0;
   left: 0;

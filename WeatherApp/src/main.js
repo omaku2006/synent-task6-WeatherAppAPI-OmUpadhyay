@@ -1,7 +1,7 @@
+import { dynamicBgImg } from './scripts/dynamicBackground';
 import { state, fetchWeather } from './scripts/fetchWeather';
 import {
   emptyModel,
-  randomBgImg,
   renderCard,
   renderError,
   renderLoading,
@@ -10,14 +10,13 @@ import {
   renderTemp,
 } from './scripts/ui';
 
-randomBgImg();
-
 export const init = async () => {
   //          ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐
   //          ╎                     Initialization                      ╎
   //          └╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┘
   renderLoading();
   await fetchWeather();
+  dynamicBgImg();
   if (state.error) return renderError();
   emptyModel();
   //          ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐

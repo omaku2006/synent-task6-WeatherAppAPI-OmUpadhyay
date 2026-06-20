@@ -12,7 +12,15 @@ export const fetchWeather = async () => {
   try {
     const res = await fetch(`https://wttr.in/${state.city}?format=j1`);
     if (!res.ok) state.error = `Getting Error while Fetchong Data : ${res.status}`;
-    state.weatherData = await res.json();
+    const text = await res.text();
+
+    if (text.toLowerCase().includes('location not found')) {
+      state.error = 'Location not found';
+    }
+
+    const data = JSON.parse(text);
+
+    state.weatherData = data;
   } catch (e) {
     state.error = `Getting error while fetching data : ${e}`;
   } finally {
